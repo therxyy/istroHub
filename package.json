@@ -1,0 +1,19 @@
+{
+  "name": "istroHub",
+  "version": "1.0.0",
+  "description": "Upload ships to website",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "run":"serve"
+  },
+  "keywords": [
+    "ship",
+    "upload"
+  ],
+  "author": "therxyy",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^13.0.2"
+  }
+}
