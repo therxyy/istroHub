@@ -7,6 +7,11 @@
 	 <script src="index.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+	</style>
+
 </head>
 <header>
 	
@@ -19,17 +24,18 @@
 
 	<div class="topcontainer">
 		<div class="container">
-		<button type="button" id="uploadButton" onclick="addShipCard()">Upload!</button>
+		<!-- <button type="button" id="uploadButton" onclick="addShipCard()">Upload!</button> -->
+			<a href="upload.html" class="navlink1">Upload ship!</a>
 		</div>
 
 	
-
+<div class="topcontainer2">
 		<input type="text" name="shipsearch" id="shipsearchbox" placeholder="Search...">
-		<select id = "selectbox">
+	<select id = "selectbox"></select>
 			<option   value="mostPopular">Most popular</option>
 			<option value="highestRated"> Highest rated</option>
 		</select>
-
+</div>
 
 	</div>
 
@@ -37,15 +43,15 @@
 <div class="ships" id="ships">
 <div>
 	<article class="ship">
-		<img width="150" height="250" src="http://placekitten.com/g/200/300">
-		<p>ship</p>
+		<img width="150" height="250" src="http://placekitten.com/g/200/300" class ="shipimg" alt="No image available..">
+		<p>ship #1</p>
 	</article>
 </div>
 	
 <div>
 	<article class="ship">
-		<img width="150" height="250" src="http://placekitten.com/g/200/300">
-		<p>ship2</p>
+		<img width="150" height="250" src="http://placekitten.com/g/200/300" class ="shipimg" alt="No image available..">
+		<p>ship #2</p>
 	</article>
 </div>
 

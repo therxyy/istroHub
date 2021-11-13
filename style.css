@@ -1,20 +1,37 @@
+*{
+	box-sizing: border-box;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+
+}
+
+body{
+	background-color: #F5F5F5
+}
+
 
 h1 {
 	text-align: center;
 
 }
 
+
 .containter{
+	width: 90%;
 	position: relative;
 }
 
 .topcontainer{
+	width: 90%;
+	position: relative;
+	left: 5%;
 	padding-bottom: 50px;
 }
 
+
+
 #uploadButton{
 	position: relative;
-	left: 50%;
+	left: 48.5%;
 	margin-bottom: 20px;
 }
 #shipsearchbox {
@@ -28,14 +45,96 @@ h1 {
 }
 
 .ships{
+	width: 90%;
 	border-top: solid;
 	padding-top: 50px;
-	display: flex;
-	flex-wrap: wrap;
-	-webkit-flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	margin:auto;
+	align-content: flex-start;
+	overflow-x: auto;
+	box-sizing: border-box;
 }
 
 .ship{
-	padding-right: 20px;
-	padding-left:20px ;
+	background-color: white;
+	padding-right: 10px;
+	padding-left:10px ;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	text-align: center;
+
+	border: 1px solid rgba(122, 121, 121, 0.50);
 }
+
+.shipimg{
+	padding-top:10px;
+
+}
+
+.uploadwrappermain{
+	width: 60%;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	left:20%;
+	top:20%;
+	padding-bottom: 50px;
+}
+
+.uploadinputs{
+	background-color: white;
+	margin: auto;
+	border: 1px solid rgba(122, 121, 121, 0.50);
+	position: relative;
+	display: grid;
+	grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+
+}
+
+.shipuploadimg{
+	padding-top: 20px;
+	position: relative;
+	text-align: center;
+	left: 30%;
+}
+
+.shipeyInput{
+width: 500px;
+height: 200px;
+
+}
+
+textarea,input,label{
+	display:block;
+	margin: auto;
+
+
+
+}
+label{
+	padding-top: 20px;
+	text-align: center;
+	left:50%;
+}
+
+#submitShipInput{
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	left: 45%;
+
+
+}
+
+.navlink1{
+
+	position: relative;
+	left: 48%;
+}
+.navlink2{
+	text-align: center;
+}
+

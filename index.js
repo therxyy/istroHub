@@ -8,8 +8,9 @@ let shipCards = document.getElementById("ships")
 let newShipCard = document.createElement("article");
 let img = document.createElement("img");
 let text = document.createElement("p")
-let textNode = document.createTextNode("ship"+count);
+let textNode = document.createTextNode("ship #"+count);
 img.src = "http://placekitten.com/g/200/300";
+img.classList.add("shipimg");
 img.width=150;
 img.height=250;
 
@@ -23,15 +24,14 @@ shipCards.appendChild(newShipCard);
 
 }
 
-//function main(){
+function main(){
 
 const button = document.getElementById("uploadButton");
-button.addEventListener(click,addShipCard());
 
-//}
+}
 
 
-function docReady() {
+function docReady(fn) {
     // see if DOM is already available
     if (document.readyState === "complete" || document.readyState === "interactive") {
         // call on next available tick
@@ -44,9 +44,3 @@ function docReady() {
 docReady(main());
 
 
-/*
-if(button){
-	console.log("document exists uwu")
-	button.addEventListener(click,addShipCard());
-};
-*/
