@@ -107,6 +107,51 @@ height: 200px;
 
 }
 
+
+.shipinfodiv{
+display: inline-block;
+
+}
+
+ table, th, td {
+ border-collapse:collapse;
+  border: 1px solid black;
+}
+
+
+.collapsebutton {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsecontent {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.active, .collapseibutton:hover {
+  background-color: #ccc;
+}
+
+
+table{
+
+margin-left:auto;
+margin-right:auto;
+margin-bottom:20px;
+
+}
+
+
 textarea,input,label{
 	display:block;
 	margin: auto;
