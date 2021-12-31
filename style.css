@@ -54,6 +54,7 @@ h1 {
 	align-content: flex-start;
 	overflow-x: auto;
 	box-sizing: border-box;
+
 }
 
 .ship{
@@ -66,6 +67,7 @@ h1 {
 	text-align: center;
 
 	border: 1px solid rgba(122, 121, 121, 0.50);
+	border-radius: 10px;
 }
 
 .shipimg{
@@ -126,20 +128,35 @@ display: inline-block;
   padding: 18px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
+	margin-top: 10px;
   outline: none;
   font-size: 15px;
+	border-radius: 10px;
 }
 
 .collapsecontent {
   padding: 0 18px;
-  display: none;
+  max-height: 0;
   overflow: hidden;
   background-color: #f1f1f1;
+	transition: max-height 0.2s ease-out;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.shipeycode{
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	resize:none;
 }
 
 .active, .collapseibutton:hover {
   background-color: #ccc;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
 
 

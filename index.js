@@ -7,7 +7,28 @@ function docReady(fn) {
     } else {
         document.addEventListener("DOMContentLoaded", fn);
     }
-} 
+}
+
+jQuery(function ($) {
+	console.log("main running")
+	var coll = document.getElementsByClassName("collapsebutton");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+		coll[i].addEventListener("click", function () {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.display === "block") {
+				content.style.display = "none";
+			} else {
+				content.style.display = "block";
+			}
+		})
+
+
+	}
+})
+
 
 
 
@@ -100,9 +121,11 @@ loadUnloadedShips(unloadedShipsArray,loadedShipsArray);
 }
 
 //stuff to do when document loaded
+/*
+
 function main() {
 
-
+console.log("main running")
 var coll = document.getElementsByClassName("collapsebutton");
 var i;
 
@@ -115,13 +138,14 @@ for (i = 0; i < coll.length; i++) {
     } else {
       content.style.display = "block";
     }
-  });
+  })
 }
 
 
 const button = document.getElementById("shipSubmitInput");
 
 }
+*/
 
 
 
@@ -131,6 +155,8 @@ const button = document.getElementById("shipSubmitInput");
 
 
 
-docReady(main());
+docReady(function(){
+	console.log("cockready")
+});
 
 
