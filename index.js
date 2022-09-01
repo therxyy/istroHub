@@ -11,6 +11,7 @@ function docReady(fn) {
 
 jQuery(function ($) {
 	console.log("main running")
+	submitDummyShip();
 	var coll = document.getElementsByClassName("collapsebutton");
 	var i;
 
