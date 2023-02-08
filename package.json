@@ -14,7 +14,7 @@
   "author": "therxyy",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^9.4.1",
-    "serve": "^13.0.2"
+    "firebase": "^9.16.0",
+    "serve": "^14.1.2"
   }
 }

@@ -1,12 +1,72 @@
 *{
 	box-sizing: border-box;
-	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-family:Arial, Helvetica, sans-serif;
 
 }
+
+
 
 body{
-	background-color: #F5F5F5
+/*	background-color: #F5F5F5 */
+
+background-repeat: no-repeat;
+
+background:url("istro_green_blur.png"); 
+background-attachment: fixed;
+background-repeat: repeat;
+height: fit-content;
+background-position: center center;
+background-size: cover;
+background-color: black;
+z-index: 0;
+
+
+	/*	background: radial-gradient(#84e1ff, aliceblue) */
 }
+
+#header{
+	background-color: rgba(0, 0, 0, 0.10);
+	color: rgba(255,255,255,.7);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;		
+}
+
+.main-header{
+	font-size:3rem;
+	font-weight: bold;
+	padding-top:25px;
+}
+
+:root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+
+#bg-underlay{
+	position:fixed;
+
+}
+#bgwrapper{
+	z-index: 1;
+}
+
+#shipname{
+	padding-top:15px;
+	padding-bottom: 5px;
+	overflow-x: scroll;
+	overflow-y:scroll;
+	white-space: nowrap;
+
+}
+
+#add-more-button{
+	display: block;
+	margin:auto;
+	margin-bottom:50px;
+	margin-top:10px;
+	background-color: rgba(0, 0, 0, 0.295)
+}
+
 
 
 h1 {
@@ -29,13 +89,21 @@ h1 {
 
 
 
-#uploadButton{
-	position: relative;
-	left: 48.5%;
-	margin-bottom: 20px;
+#uploadbutton{
+	background-color: rgb(255 255 255 / 50%);
+	color:black;
+	border-color: rgb(0 0 0/25%);
 }
+
+#uploadbutton:hover{
+	background-color: rgb(255 255 255 / 75%);
+}
+
 #shipsearchbox {
 	float: left;
+	border-radius: 20px;
+	border-color: rgb(0 0 0/25%);
+	background-color: rgb(255 255 255 / 50%)
 
 }
 
@@ -45,8 +113,8 @@ h1 {
 }
 
 .ships{
-	width: 90%;
-	border-top: solid;
+	width: 75%;
+	/*border-top: solid;*/
 	padding-top: 50px;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -58,16 +126,24 @@ h1 {
 }
 
 .ship{
-	background-color: white;
+	transition:1s;
+	background-color: rgba(0, 0, 0, 0.151);
 	padding-right: 10px;
 	padding-left:10px ;
+	margin-top:10px;
+
 	margin-left: 10px;
 	margin-right: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	text-align: center;
 
-	border: 1px solid rgba(122, 121, 121, 0.50);
+	border: 1px solid rgba(122, 121, 121 , 10%);
 	border-radius: 10px;
+}
+
+.ship:hover{
+	transition:1s;
+	background-color: rgba(0, 0, 0, 0.35);
 }
 
 .shipimg{
@@ -75,37 +151,36 @@ h1 {
 
 }
 
-.uploadwrappermain{
-	width: 60%;
-	border: 1px solid black;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	left:20%;
-	top:20%;
-	padding-bottom: 50px;
+.shipeycode{
+	background-color:rgb(255 255 255 / 50%)
 }
 
-.uploadinputs{
-	background-color: white;
-	margin: auto;
-	border: 1px solid rgba(122, 121, 121, 0.50);
-	position: relative;
-	display: grid;
-	grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
 
-}
 
 .shipuploadimg{
 	padding-top: 20px;
 	position: relative;
+	display:block;
 	text-align: center;
-	left: 30%;
+	margin:auto;
+}
+
+#shipNameInput{
+	background-color:rgb(255 255 255 / 50%);
+	border-radius:20px;
+	border-color:rgb(0 0 0/25%);
+}
+
+#shipey-input{
+	background-color:rgb(255 255 255 / 50%);
 }
 
 .shipeyInput{
+	transition: 1s;
 width: 500px;
 height: 200px;
+background-color:rgb(255 255 255 / 50%);
+border-radius: 10px;
 
 }
 
@@ -122,7 +197,7 @@ display: inline-block;
 
 
 .collapsebutton {
-  background-color: #eee;
+  background-color:rgb(175 175 175 / 30%);
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -133,6 +208,10 @@ display: inline-block;
   outline: none;
   font-size: 15px;
 	border-radius: 10px;
+}
+
+.collapsebutton:hover{
+	background-color:rgb(175 175 175 / 50%);
 }
 
 .collapsecontent {
@@ -177,18 +256,50 @@ textarea,input,label{
 
 }
 label{
+	display:block !important;
 	padding-top: 20px;
 	text-align: center;
 	left:50%;
 }
 
-#submitShipInput{
+
+.uploadwrappermain{
+	width: 60%;
+	display: block;
+	margin:auto;
+	flex-direction: column;
 	position: relative;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	left: 45%;
+}
+
+.uploadinputs{
+
+	margin: auto;
+	position: relative;
+	display: grid;
+	grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+
+}
 
 
+
+#submitShipInput{
+	text-align: center;
+	position: relative;
+	display:block;
+	margin:auto;
+	margin-top:50px;
+	background-color:rgb(255 255 255 / 50%);
+
+
+}
+
+.shipeyInput{
+	display:block;
+	margin:auto;
+}
+
+#shipNameInput{
+	margin:auto;
 }
 
 .navlink1{
@@ -198,5 +309,38 @@ label{
 }
 .navlink2{
 	text-align: center;
+	display:block;
+	margin:auto;
 }
 
+#confirmation{
+	text-align: center;
+	opacity:0; 
+	transition-property:opacity;
+	transition-duration: 1s;
+}
+#confirmation.pos-fade-in{
+	opacity:1;
+	transform:translateY(-75px);
+	transition:1s;
+	color:green;
+	/*animation: fade 2s linear forwards;*/
+}
+
+#override{
+	display:block;
+	margin:auto;
+}
+
+#confirmation.neg-fade-in{
+	opacity:1;
+	transform:translateY(-75px);
+	transition:1s;
+	color:red;
+	/*animation: fade 2s linear forwards;*/
+}
+
+@keyframes fade{
+	0%,100% {opacity:0};
+	50% {opacity:1};
+}

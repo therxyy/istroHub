@@ -4,133 +4,117 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Istrohub</title>
-	 <script src="index.js"></script>
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+	 <script type="module" src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://rsms.me/">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 	</style>
 	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-	<script>
-		$(function() {
-		console.log("running from script tagz uwu")
-		var coll = document.getElementsByClassName("collapsebutton");
-	var i;
-
-	for (i = 0; i < coll.length; i++) {
-		coll[i].addEventListener("click", function() {
-			this.classList.toggle("active");
-			var content = this.nextElementSibling;
-			if (content.style.maxHeight) {
-				content.style.maxHeight = null;
-			} else {
-				content.style.maxHeight= content.scrollHeight + "px";
-			}
-		})}
-
-
-
-		});
-	</script>
-</head>
-<header>
 	
-<h1>IstroHub</h1>
-
-</header>
-
+</head>
 <body>
+	<div id="bg-underlay"></div>
+	<div id="bgwrapper">
+	<div id="header">
+<h1 class="main-header">IstroHub</h1>
 
+
+
+
+<canvas id="shipeycanvas" hidden></canvas>
+<canvas id="shipeycanvas2" hidden></canvas>
 
 	<div class="topcontainer">
 		<div class="container">
-		<button type="button" id="refreshButton" onclick="loadUnloadedShips(unloadedShips,loadedShips)">Refresh</button>
-			<a href="upload.html" class="navlink1">Upload ship!</a>
-			
+	<!--	<button type="button" id="refreshButton" onclick="loadUnloadedShips(unloadedShips,loadedShips)">Refresh</button> -->
+			<!-- <a href="upload.html" class="navlink1">Upload ship!</a> -->
+			<button type = "button" class="btn btn-primary mx-auto d-block" id="uploadbutton" onclick="window.location.href='upload.html'">Upload ship!</button>
 		</div>
 
 	
 <div class="topcontainer2">
 		<input type="text" name="shipsearch" id="shipsearchbox" placeholder="Search...">
-	<select id="selectbox">
+	<select id="selectbox" hidden>
 			<option   value="mostPopular">Most popular</option>
 			<option value="highestRated"> Highest rated</option>
 		</select>
 </div>
 
 	</div>
-
+</div>
 
 <div class="ships" id="ships">
-<div>
-	<article class="ship">
-		<p>ship name 1</p>
-		<div class="shipinfodiv">
-		<img width="150" height="250" src="http://placekitten.com/g/200/300" class ="shipimg" alt="No image available..">
-		
-		
-		<button type="button" class="collapsebutton" >See stats</button>
-		<div class="collapsecontent">
-		<table>
-		<tr>
-			<th colspan="2">Stats</th>
-		</tr>
-
-		<tr>
-			<td>Cost</td>
-			<td>1000</td>
-		</tr>
-		
-		<tr>
-			<td>HP</td>
-			<td>300</td>
-		</tr>
-		
-		<tr>
-			<td>DPS</td>
-			<td>100</td>
-		</tr>
-		
-		<tr>
-			<td>Speed</td>
-			<td>300m/s</td>
-		</tr>
-		
-		<tr>
-			<td>Turnrate</td>
-			<td>50deg</td>
-		</tr>
-		
-		<tr>
-			<td>Range</td>
-			<td>900m</td>
-		</tr>
-		
-		
-		</table>
-		</div>
-		</div>
-		<textarea readonly class="shipeycode">shipeyJwYXJ0cyI6W3sicG9zIjpbLTQwLDYwXSwidHlwZSI6Ik1vdW50MTBSYW5nZSIsImRpciI6MH0seyJwb3MiOls0MCw2MF0sInR5cGUiOiJNb3VudDEwUmFuZ2UiLCJkaXIiOjB9LHsicG9zIjpbMCw0MF0sInR5cGUiOiJUYXJnZXRpbmdNb2QiLCJkaXIiOjB9LHsicG9zIjpbMCw4MF0sInR5cGUiOiJUYXJnZXRpbmdNb2QiLCJkaXIiOjB9LHsicG9zIjpbLTgwLDgwXSwidHlwZSI6IlRhcmdldGluZ01vZCIsImRpciI6MH0seyJwb3MiOls4MCw4MF0sInR5cGUiOiJUYXJnZXRpbmdNb2QiLCJkaXIiOjB9LHsicG9zIjpbLTgwLDQwXSwidHlwZSI6IkRhbWFnZU1vZCIsImRpciI6MH0seyJwb3MiOls4MCw0MF0sInR5cGUiOiJEYW1hZ2VNb2QiLCJkaXIiOjB9LHsicG9zIjpbLTQwLDBdLCJ0eXBlIjoiTW91bnQxODAiLCJkaXIiOjB9LHsicG9zIjpbNDAsMF0sInR5cGUiOiJNb3VudDE4MCIsImRpciI6MH0seyJwb3MiOlswLC0yMF0sInR5cGUiOiJNb3VudDE4MCIsImRpciI6MH0seyJwb3MiOlstMTIwLDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjoxfSx7InBvcyI6WzEyMCwwXSwidHlwZSI6IlZBcm1vcjJ4MiIsImRpciI6M30seyJwb3MiOlstODAsMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbODAsMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbLTEyMCwtNDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6WzEyMCwtNDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6Wy04MCwtNDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6WzgwLC00MF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbLTQwLC00MF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbNDAsLTQwXSwidHlwZSI6IlZBcm1vcjJ4MiIsImRpciI6MH0seyJwb3MiOlstNDAsLTgwXSwidHlwZSI6IlNvbGFyMngyIiwiZGlyIjowfSx7InBvcyI6WzQwLC04MF0sInR5cGUiOiJTb2xhcjJ4MiIsImRpciI6MH0seyJwb3MiOlstODAsLTE0MF0sInR5cGUiOiJWQXJtb3IyeDJBbmdsZSIsImRpciI6MH0seyJwb3MiOls4MCwtMTQwXSwidHlwZSI6IlZBcm1vcjJ4MkFuZ2xlIiwiZGlyIjowfSx7InBvcyI6WzAsLTE2MF0sInR5cGUiOiJCYXR0ZXJ5MngyIiwiZGlyIjoxfSx7InBvcyI6WzAsLTEzMF0sInR5cGUiOiJCYXR0ZXJ5MngxIiwiZGlyIjowfSx7InBvcyI6WzAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbMCwtNjBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6WzAsMTBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjozfSx7InBvcyI6Wy0xMjAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDJBbmdsZSIsImRpciI6MH0seyJwb3MiOlsxMjAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDJBbmdsZSIsImRpciI6MH0seyJwb3MiOlstODAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbODAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbLTEyMCwtNzBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjoxfSx7InBvcyI6WzEyMCwtNzBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjozfSx7InBvcyI6Wy04MCwtNzBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjoxfSx7InBvcyI6WzgwLC03MF0sInR5cGUiOiJWQXJtb3IxeDIiLCJkaXIiOjN9LHsicG9zIjpbLTUwLC0xNTBdLCJ0eXBlIjoiRW5naW5lMDEiLCJkaXIiOjB9LHsicG9zIjpbNTAsLTE1MF0sInR5cGUiOiJFbmdpbmUwMSIsImRpciI6MH0seyJwb3MiOlstMzAsLTE2MF0sInR5cGUiOiJXaW5nMXgyIiwiZGlyIjoyfSx7InBvcyI6WzMwLC0xNjBdLCJ0eXBlIjoiV2luZzF4MiIsImRpciI6Mn0seyJwb3MiOlstMTEwLDQwXSwidHlwZSI6IldpbmcxeDIiLCJkaXIiOjJ9LHsicG9zIjpbMTEwLDQwXSwidHlwZSI6IldpbmcxeDIiLCJkaXIiOjJ9LHsicG9zIjpbMCwtMjBdLCJ0eXBlIjoiUERUdXJyZXQiLCJkaXIiOjB9LHsicG9zIjpbLTQwLDBdLCJ0eXBlIjoiUERUdXJyZXQiLCJkaXIiOjB9LHsicG9zIjpbNDAsMF0sInR5cGUiOiJQRFR1cnJldCIsImRpciI6MH0seyJwb3MiOlstNDAsNjBdLCJ0eXBlIjoiSGVhdnlCZWFtVHVycmV0IiwiZGlyIjowfSx7InBvcyI6WzQwLDYwXSwidHlwZSI6IkhlYXZ5QmVhbVR1cnJldCIsImRpciI6MH1dLCJuYW1lIjoiU3RpbmdlciIsImFpUnVsZXMiOltdfQ</textarea>
-		
-
-
-	</article>
-</div>
-	
-<div>
-	<article class="ship">
-		<img width="150" height="250" src="http://placekitten.com/g/200/300" class ="shipimg" alt="No image available..">
-		<p>ship #2</p>
-	</article>
-</div>
 
 </div>
+<button class="btn btn-primary" id="add-more-button">Load more!</button>
+</div>
 
+<template id="shiptemplate" >
+
+		<div>
+			<article class="ship">
+				<p id="shipname">ship name 4</p>
+				<div class="shipinfodiv">
+				<img width="160" height="160" src="http://placekitten.com/g/200/300" id="shipimg" alt="No image available..">
+				
+				
+				<button type="button" class="collapsebutton" data-toggle="collapse" data-target="#shiptable" id="colbutton" >See stats</button>
+				<div class="collapse table table-bordered table-sm table-hover" id="shiptable">
+				<table>
+				<tr>
+					<th colspan="2">Stats</th>
+				</tr>
+		
+				<tr>
+					<td>Cost</td>
+					<td id="shipcost">1134</td>
+				</tr>
+				
+				<tr>
+					<td>HP</td>
+					<td id="shiphp">300</td>
+				</tr>
+				
+				<tr>
+					<td>DPS</td>
+					<td id="shipdps">100</td>
+				</tr>
+				
+				<tr>
+					<td>Speed</td>
+					<td id="shipspeed">300m/s</td>
+				</tr>
+				
+				<tr>
+					<td>Turnrate</td>
+					<td id="shipturn">50deg</td>
+				</tr>
+				
+				<tr>
+					<td>Range</td>
+					<td id="shiprange">900m</td>
+				</tr>
+				
+				
+				</table>
+				</div>
+				</div>
+				<textarea readonly class="shipeycode" id="shipey">shipeyJwYXJ0cyI6W3sicG9zIjpbLTQwLDYwXSwidHlwZSI6Ik1vdW50MTBSYW5nZSIsImRpciI6MH0seyJwb3MiOls0MCw2MF0sInR5cGUiOiJNb3VudDEwUmFuZ2UiLCJkaXIiOjB9LHsicG9zIjpbMCw0MF0sInR5cGUiOiJUYXJnZXRpbmdNb2QiLCJkaXIiOjB9LHsicG9zIjpbMCw4MF0sInR5cGUiOiJUYXJnZXRpbmdNb2QiLCJkaXIiOjB9LHsicG9zIjpbLTgwLDgwXSwidHlwZSI6IlRhcmdldGluZ01vZCIsImRpciI6MH0seyJwb3MiOls4MCw4MF0sInR5cGUiOiJUYXJnZXRpbmdNb2QiLCJkaXIiOjB9LHsicG9zIjpbLTgwLDQwXSwidHlwZSI6IkRhbWFnZU1vZCIsImRpciI6MH0seyJwb3MiOls4MCw0MF0sInR5cGUiOiJEYW1hZ2VNb2QiLCJkaXIiOjB9LHsicG9zIjpbLTQwLDBdLCJ0eXBlIjoiTW91bnQxODAiLCJkaXIiOjB9LHsicG9zIjpbNDAsMF0sInR5cGUiOiJNb3VudDE4MCIsImRpciI6MH0seyJwb3MiOlswLC0yMF0sInR5cGUiOiJNb3VudDE4MCIsImRpciI6MH0seyJwb3MiOlstMTIwLDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjoxfSx7InBvcyI6WzEyMCwwXSwidHlwZSI6IlZBcm1vcjJ4MiIsImRpciI6M30seyJwb3MiOlstODAsMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbODAsMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbLTEyMCwtNDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6WzEyMCwtNDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6Wy04MCwtNDBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6WzgwLC00MF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbLTQwLC00MF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbNDAsLTQwXSwidHlwZSI6IlZBcm1vcjJ4MiIsImRpciI6MH0seyJwb3MiOlstNDAsLTgwXSwidHlwZSI6IlNvbGFyMngyIiwiZGlyIjowfSx7InBvcyI6WzQwLC04MF0sInR5cGUiOiJTb2xhcjJ4MiIsImRpciI6MH0seyJwb3MiOlstODAsLTE0MF0sInR5cGUiOiJWQXJtb3IyeDJBbmdsZSIsImRpciI6MH0seyJwb3MiOls4MCwtMTQwXSwidHlwZSI6IlZBcm1vcjJ4MkFuZ2xlIiwiZGlyIjowfSx7InBvcyI6WzAsLTE2MF0sInR5cGUiOiJCYXR0ZXJ5MngyIiwiZGlyIjoxfSx7InBvcyI6WzAsLTEzMF0sInR5cGUiOiJCYXR0ZXJ5MngxIiwiZGlyIjowfSx7InBvcyI6WzAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbMCwtNjBdLCJ0eXBlIjoiVkFybW9yMngyIiwiZGlyIjowfSx7InBvcyI6WzAsMTBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjozfSx7InBvcyI6Wy0xMjAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDJBbmdsZSIsImRpciI6MH0seyJwb3MiOlsxMjAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDJBbmdsZSIsImRpciI6MH0seyJwb3MiOlstODAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbODAsLTEwMF0sInR5cGUiOiJWQXJtb3IyeDIiLCJkaXIiOjB9LHsicG9zIjpbLTEyMCwtNzBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjoxfSx7InBvcyI6WzEyMCwtNzBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjozfSx7InBvcyI6Wy04MCwtNzBdLCJ0eXBlIjoiVkFybW9yMXgyIiwiZGlyIjoxfSx7InBvcyI6WzgwLC03MF0sInR5cGUiOiJWQXJtb3IxeDIiLCJkaXIiOjN9LHsicG9zIjpbLTUwLC0xNTBdLCJ0eXBlIjoiRW5naW5lMDEiLCJkaXIiOjB9LHsicG9zIjpbNTAsLTE1MF0sInR5cGUiOiJFbmdpbmUwMSIsImRpciI6MH0seyJwb3MiOlstMzAsLTE2MF0sInR5cGUiOiJXaW5nMXgyIiwiZGlyIjoyfSx7InBvcyI6WzMwLC0xNjBdLCJ0eXBlIjoiV2luZzF4MiIsImRpciI6Mn0seyJwb3MiOlstMTEwLDQwXSwidHlwZSI6IldpbmcxeDIiLCJkaXIiOjJ9LHsicG9zIjpbMTEwLDQwXSwidHlwZSI6IldpbmcxeDIiLCJkaXIiOjJ9LHsicG9zIjpbMCwtMjBdLCJ0eXBlIjoiUERUdXJyZXQiLCJkaXIiOjB9LHsicG9zIjpbLTQwLDBdLCJ0eXBlIjoiUERUdXJyZXQiLCJkaXIiOjB9LHsicG9zIjpbNDAsMF0sInR5cGUiOiJQRFR1cnJldCIsImRpciI6MH0seyJwb3MiOlstNDAsNjBdLCJ0eXBlIjoiSGVhdnlCZWFtVHVycmV0IiwiZGlyIjowfSx7InBvcyI6WzQwLDYwXSwidHlwZSI6IkhlYXZ5QmVhbVR1cnJldCIsImRpciI6MH1dLCJuYW1lIjoiU3RpbmdlciIsImFpUnVsZXMiOltdfQ</textarea>
+				
+		
+		
+			</article>
+			
+
+</template>
 
 </body>
 </html>
