@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Istrohub</title>
-	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/istroHub/images/favicon.ico">
 	 <script type="module" src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,6 +17,7 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 	</style>
+	
 	
 	
 </head>
@@ -41,7 +42,15 @@
 
 	
 <div class="topcontainer2">
-		<input type="text" name="shipsearch" id="shipsearchbox" placeholder="Search...">
+  <input type="text" class="form-control-rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="shipsearchbox"/>
+ <button type="button" class="btn btn-primary" id="searchButton">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+		<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+	  </svg>
+ </button>
+
+
+</div>
 	<select id="selectbox" hidden>
 			<option   value="mostPopular">Most popular</option>
 			<option value="highestRated"> Highest rated</option>

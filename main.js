@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getFirestore, doc, getDoc, getDocs, collection, addDoc, query, orderBy,limit,startAt } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, getDocs, collection, addDoc, query, orderBy,limit,startAt,startAfter,where } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 //const Canvas = require('canvas');
 //const parts = require('./parts.json');
 //const {size, mappings} = require('./atlas.json'), atlasSize = size;
@@ -467,9 +467,27 @@ var latestDoc;
 var latest = null;
 var hide = false;
 const shipscol = collection(db, "ships");
-async function getShips(db, limitNum, sort="default"){
+//flexible getships function (?);
+async function getShips(db, limitNum, sort="default",search=null){
 	
-	 q = await query(shipscol,limit(10));
+	//determine the query 
+
+    //default case
+    if(sort=="default" && search==null){
+        q = await query(shipscol,limit(limitNum));
+    } 
+    //search is not null, do search
+    else if(search!=null) {
+        q = await query(shipscol, limit(limitNum),where('name',"<=",search),where('name','>=',search));
+    } 
+    //else case; TRUE default case XD
+    else {
+        console.log("deffered to else case lol");
+        q = await query(shipscol,limit(limitNum));
+    }
+    
+    
+    
     const shipSnapshot = await getDocs(q)
     console.log(shipSnapshot);
 	const shiplist = shipSnapshot.docs.map(doc => doc.data());
@@ -477,21 +495,44 @@ async function getShips(db, limitNum, sort="default"){
     return shiplist;
 }
 
-
+//flexible pagination function
 async function getNextShips(){
-    q = await query(shipscol, startAt(latestDoc),limit(10));
+    console.log("Latestdoc: {}",latestDoc);
+    if(latestDoc != undefined){
+    q = await query(shipscol, startAfter(latestDoc),limit(10));
     let newSnapshot = await getDocs(q);
     let nextList = newSnapshot.docs.map(doc => doc.data());
     latestDoc = newSnapshot.docs[newSnapshot.docs.length-1];
     return nextList
+    } else {
+        if(latestDoc==undefined){
+        throw new Error("Latestdoc is undefined");
+        } 
+    }
 }
 
+//search function 
+function search(){
+    console.log("searching...")
+    document.getElementById("ships").innerHTML = ""
+    let searchVal = document.getElementById("shipsearchbox").value;
+    getShips(db, LIMIT,"default",searchVal).then(Ships =>{
+        createShipsArray(Ships);
+        shipCardTest();
+    });
+}
+
+//paginate button logic 
 function paginate(){
+    try {
     getNextShips().then(nextShips => {
         console.log(nextShips);
         createShipsArray(nextShips);
         shipCardTest();
     })
+} catch {
+    console.log("no more ships?")
+}
 }    //tracks number of ships made 
 var count = 0;
 //tracks number of ship articles on page
@@ -713,10 +754,12 @@ function preveiwShip(){
 
 //document is loaded code 
 document.addEventListener('DOMContentLoaded', (event)=>{
-    //console.log("domcontentloaded")
+    console.log("domcontentloaded")
 
-    if (window.location.pathname=="/index.html"){
-    var shipCardTemp = document.getElementsByTagName("template")[0];
+    if (window.location.pathname=="/istroHub/index.html"){
+    
+    console.log("hey")
+        var shipCardTemp = document.getElementsByTagName("template")[0];
     console.log(shipCardTemp);
 	//console.log("submittering dummy shipper")
 	getShips(db,LIMIT).then(shiplist =>{
@@ -724,10 +767,10 @@ document.addEventListener('DOMContentLoaded', (event)=>{
 	createShipsArray(shiplist);
 	shipCardTest();
 	})
-
+   /document.getElementById("searchButton").addEventListener("click", search,false);
     document.getElementById("add-more-button").addEventListener("click",paginate,false);
 
-    } else if(window.location.pathname=="/upload.html"){
+    } else if(window.location.pathname=="/istroHub/upload.html"){
     console.log("upload.html")
 	document.getElementById("submitShipInput").addEventListener("click",submitNewShip,false);
     document.getElementById("shipey-Input").addEventListener("input",preveiwShip,false)

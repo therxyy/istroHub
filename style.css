@@ -1,6 +1,6 @@
 *{
 	box-sizing: border-box;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:Helvetica;
 
 }
 
@@ -24,6 +24,12 @@ z-index: 0;
 	/*	background: radial-gradient(#84e1ff, aliceblue) */
 }
 
+#searchButton{
+	background-color:  rgba(0, 0, 0, 0.10);
+	border:rgba(0, 0, 0, 0);
+	border-radius: 10%;
+}
+
 #header{
 	background-color: rgba(0, 0, 0, 0.10);
 	color: rgba(255,255,255,.7);
@@ -37,10 +43,7 @@ z-index: 0;
 	padding-top:25px;
 }
 
-:root { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
-}
+
 
 #bg-underlay{
 	position:fixed;
