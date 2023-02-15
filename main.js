@@ -21,7 +21,7 @@ var atlas = null;
 const Canvas = document.getElementById("shipeycanvas");
 //Canvas.loadImage("atlas.png").then((image) => atlas = image);
 atlas = new Image()
-atlas.src = 'atlas.png'
+atlas.src = './atlas.png'
 
 
 
@@ -755,8 +755,8 @@ function preveiwShip(){
 //document is loaded code 
 document.addEventListener('DOMContentLoaded', (event)=>{
     console.log("domcontentloaded")
-
-    if (document.URL.includes("index.html")){
+    //jank code now to serve lololol
+    if (document.URL.includes("index.html") || !(document.URL.includes("upload.html"))){
     
     console.log("hey")
         var shipCardTemp = document.getElementsByTagName("template")[0];
