@@ -756,7 +756,7 @@ function preveiwShip(){
 document.addEventListener('DOMContentLoaded', (event)=>{
     console.log("domcontentloaded")
 
-    if (window.location.pathname=="/istroHub/index.html"){
+    if (document.URL.includes("index.html")){
     
     console.log("hey")
         var shipCardTemp = document.getElementsByTagName("template")[0];
@@ -770,7 +770,7 @@ document.addEventListener('DOMContentLoaded', (event)=>{
    /document.getElementById("searchButton").addEventListener("click", search,false);
     document.getElementById("add-more-button").addEventListener("click",paginate,false);
 
-    } else if(window.location.pathname=="/istroHub/upload.html"){
+    } else if(document.URL.includes("upload.html")){
     console.log("upload.html")
 	document.getElementById("submitShipInput").addEventListener("click",submitNewShip,false);
     document.getElementById("shipey-Input").addEventListener("input",preveiwShip,false)
