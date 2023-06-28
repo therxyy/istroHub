@@ -125,8 +125,13 @@ h1 {
 	align-content: flex-start;
 	overflow-x: auto;
 	box-sizing: border-box;
-
+	-ms-overflow-style: none;  /* IE and Edge */
+  	scrollbar-width: none;  /* Firefox */
 }
+
+.ships:-webkit-scrollbar {
+	display: none;
+  }
 
 .ship{
 	transition:1s;

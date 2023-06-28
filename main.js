@@ -478,7 +478,7 @@ async function getShips(db, limitNum, sort="default",search=null){
     } 
     //search is not null, do search
     else if(search!=null) {
-        q = await query(shipscol, limit(limitNum),where('name',"<=",search),where('name','>=',search));
+        q = await query(shipscol, limit(limitNum),where('name',">=",search),where('name','<=',search + '\uf8ff'));
     } 
     //else case; TRUE default case XD
     else {
@@ -754,7 +754,13 @@ function preveiwShip(){
 
 //document is loaded code 
 document.addEventListener('DOMContentLoaded', (event)=>{
+    atlas = new Image()
+    atlas.src = './atlas.png'
     console.log("domcontentloaded")
+    atlas.onload = function(){
+
+
+    console.log("img loaded?")
     //jank code now to serve lololol
     if (document.URL.includes("index.html") || !(document.URL.includes("upload.html"))){
     
@@ -775,6 +781,7 @@ document.addEventListener('DOMContentLoaded', (event)=>{
 	document.getElementById("submitShipInput").addEventListener("click",submitNewShip,false);
     document.getElementById("shipey-Input").addEventListener("input",preveiwShip,false)
     }
+}
 	//shipCardTest();
 })
 
